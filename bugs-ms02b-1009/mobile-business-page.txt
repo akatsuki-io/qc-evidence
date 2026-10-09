@@ -1,0 +1,10 @@
+mobile jest __tests__/business-page.test.tsx (remote lane node_modules)
+
+PASS __tests__/business-page.test.tsx (17.383 s)
+Test Suites: 1 passed, 1 total
+Tests:       74 passed, 74 total
+
+Includes B_119 regressions:
+ ✓ shows the updating skeleton only while the first fetch is in flight
+ ✓ B_119 — a settled null summary hides the card instead of an endless skeleton
+ ✓ renders nothing for unavailable and for a query error

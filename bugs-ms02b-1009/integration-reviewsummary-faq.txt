@@ -1,0 +1,30 @@
+02:39:40.856 INFO  [scheduling:webhook-verifier] webhook signature config at boot {
+  realtimeEnabled: [],
+  pollOnlyUnconfigured: [
+    'ACUITY',
+    'CALENDLY',
+    'GOOGLE_CALENDAR',
+    'HOUSECALL_PRO',
+    'JOBBER',
+    'MICROSOFT_GRAPH',
+    'MINDBODY',
+    'PEEK_PRO',
+    'SQUARE'
+  ]
+}
+
+stderr | tests/integration/review-summary.test.ts > MS02-04 review summary > only the business itself regenerates its summary, now, with a cooldown
+02:40:16.777 WARN  [review-summary] review summary generation failed; keeping prior summary { providerId: 'cmv0cy9hj003okj1fnv7r7sqf', reason: 'disabled' }
+
+ ✓ tests/integration/review-summary.test.ts (5 tests) 31271ms
+   ✓ MS02-04 review summary > public.summary: NOT_FOUND for inactive/unknown; null before generation; shapes after 5927ms
+   ✓ MS02-04 review summary > corpus is PUBLISHED-only: HIDDEN/REMOVED never reach the prompt input 5949ms
+   ✓ MS02-04 review summary > admin remove and recomputeProviderRating expire the cache and sync RatingAggregate 7649ms
+   ✓ MS02-04 review summary > booking.review.submit expires the cache 6611ms
+   ✓ MS02-04 review summary > only the business itself regenerates its summary, now, with a cooldown 4949ms
+
+ Test Files  2 passed (2)
+      Tests  17 passed (17)
+   Start at  04:37:30
+   Duration  166.44s (transform 20.97s, setup 0ms, collect 68.73s, tests 96.41s, environment 1ms, prepare 339ms)
+

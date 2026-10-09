@@ -1,0 +1,9 @@
+tests/integration/faq-generation.test.ts (vitest.integration.config.ts)
+DATABASE_URL=postgresql://test:test@127.0.0.1:5433/fillr_test_ms02b (throwaway test DB)
+
+ ✓ tests/integration/faq-generation.test.ts (40 tests) 137695ms
+ Test Files  1 passed (1)
+      Tests  40 passed (40)
+
+Notable: generation job row records promptVersion: 6; normalization test
+asserts the snapshot carries NO "reviews" source and no "3.7" (B_117 r1).

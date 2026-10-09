@@ -1,0 +1,36 @@
+B_117 r1 — dev provider FAQ regenerated with the fixed snapshot (no volatile aggregates)
+Provider: cmt8r6fe00046kj4kg4obu6xk (Me Thu Nail & Spa), dev DB on test-eu.
+Ran the repo's own FAQ pipeline (enqueueFaqGeneration + runFaqGenerationBatch +
+publishAllFaq) from this branch against the dev DB, AI_DRIVER=deepseek.
+
+== BEFORE ==
+10 published items; provider live rating 3.83 avg / 12 reviews.
+ [live] What do customers say about you?
+     Our customers rate us 3.7 out of 5, based on 7 reviews.   <- stale facts baked in
+ items embedding aggregate text: 1
+ isStale: true | revision: 7
+ (listFaq under the new code already flags the legacy set stale — its stored
+  snapshot hash included the review facts the new builder no longer emits, so
+  the stale banner now also flags sets whose PUBLISHED items embed old numbers.)
+
+== SNAPSHOT (new code) ==
+ sources: profile, contact, staff, booking, service:x6, location:x1, hours:x1,
+          policy:fillr-cancellation
+ 'reviews' source present: false
+ snapshot mentions rating/count: false
+
+== GENERATION GATE (live) ==
+ publishAllFaq on the stale set without allowStaleFacts:
+   TRPCError CONFLICT FAQ_STALE_FACTS   <- the r0 gate works
+
+== GENERATION ==
+ enqueued cmv0cqxy80001kj0v947tx06v — attempt 1 timed out at the 50s job
+ deadline (deepseek slow), requeued; attempt 2 SUCCEEDED.
+
+== AFTER REGEN ==
+10 draft items, 0 embedding aggregate text; the "what do customers say"
+question is gone entirely (the model cannot quote numbers it never sees).
+ isStale: false | revision: 8
+
+== REPUBLISHED ==
+10 answers live; isStale: false — dev provider's public FAQ is now clean.

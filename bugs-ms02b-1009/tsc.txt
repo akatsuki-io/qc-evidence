@@ -1,0 +1,2 @@
+rdev tsc          → exit 0 (no output)
+rdev tsc mobile   → exit 0 (no output)

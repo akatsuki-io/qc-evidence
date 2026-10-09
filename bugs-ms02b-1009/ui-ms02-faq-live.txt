@@ -1,0 +1,6 @@
+tests/ui/ms02-faq-live.test.tsx (vitest.ui.config.ts) — mounted under
+NextIntlClientProvider (en) after the r1 i18n move of FAQ dialog/error strings.
+
+ ✓ tests/ui/ms02-faq-live.test.tsx (16 tests) 14549ms
+ Test Files  1 passed (1)
+      Tests  16 passed (16)

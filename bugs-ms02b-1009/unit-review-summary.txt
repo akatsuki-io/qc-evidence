@@ -1,0 +1,19 @@
+tests/unit/review-summary-service.test.ts + tests/unit/faq-generation.test.ts
+rdev: pnpm vitest run (default config) — 2026-10-12, head pending-r1
+
+ ✓ tests/unit/review-summary-service.test.ts (23 tests) 71ms
+ ✓ tests/unit/faq-generation.test.ts (14 tests) 28ms
+
+ Test Files  2 passed (2)
+      Tests  37 passed (37)
+
+Coverage added for r1:
+- success payload carries corpusHash (sha256 fingerprint of the prompt corpus)
+- kept regen over an UNCHANGED corpus keeps prior text + records lastAttemptAt
+  without touching generatedAt
+- CHANGED corpus (edited bodies, same count) → overwrite, not keep (B_106)
+- legacy rows without corpusHash → shrink-count fallback: keep unchanged /
+  overwrite shrunk
+- 'kept' regen starts the cooldown: immediate second regenerate → outcome
+  "cooldown", AI called exactly once (HIGH fix)
+- faq.generate prompt is v6 and contains no "averageRating"/"review count"

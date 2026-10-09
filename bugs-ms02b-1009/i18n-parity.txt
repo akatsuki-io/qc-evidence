@@ -1,0 +1,6 @@
+messages/{en,fr,es}.json flattened-key parity after adding biz.faq.* (r1):
+en 10378
+fr 10378
+es 10378
+en-fr diff: set()
+en-es diff: set()
